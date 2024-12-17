@@ -27,7 +27,8 @@ def getResponse(prompt, model_text):
     msg = [{"role": "user", "content": prompt}]
     # print('Msg: ', msg)
     # client = OpenAI(api_key="xxx")
-    client = OpenAI(api_key=os.environ['MY_API_KEY'])
+    client = OpenAI(api_key=os.environ['OPEN_AI_KEY'])
+    print(os.environ['OPEN_AI_KEY'])
 
     output = None
     times = 0
