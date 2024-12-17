@@ -1,4 +1,4 @@
-from google.colab import userdata
+import os
 
 def print_secret(secret_name):
     """
@@ -10,11 +10,10 @@ def print_secret(secret_name):
     """
 
     try:
-        secret_value = userdata.get('OPEN_AI_KEY')
+        secret_value = os.environ[secret_name]
         print(f"Secret '{secret_name}': {secret_value}")
     except KeyError:
         print(f"Secret '{secret_name}' not found in environment variables.")
 
 # Example usage:
 print_secret("OPEN_AI_KEY")
-
