@@ -15,6 +15,7 @@ from openai import OpenAI
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 nltk.download('punkt')
+nltk.download('punkt_tab')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('maxent_ne_chunker')
 nltk.download('words')
@@ -126,7 +127,7 @@ def run(n=5, m=10):
                 times += 1
                 # output = get_response_from_llm('gpt4', [new_prompt])
                 output = getResponse(new_prompt, 'gpt-4')
-                # print('Output: ', output)
+                print('Output: ', output)
                 s_list = postProcess(output, 'gpt4')
                 print(s_list)
                 for item in s_list:
@@ -179,7 +180,7 @@ def run(n=5, m=10):
                     if i >= 5 and len(cur_list) > cur_len:
                         break
                     new_sentence = sentence
-                    # print('Ori word: ', ori_words)
+                    print('Ori word: ', ori_words)
                     for j in range(len(ori_words)):
                         word = ori_words[j]
                         if len(w_synonyms) < j + 1:
